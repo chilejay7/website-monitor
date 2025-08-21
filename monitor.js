@@ -6,6 +6,8 @@ const monitor = async () => {
     
     // Headers are needed to lend the request more validity when received by the server.  At times when there is increased traffic for a really popular item, headers are necessary to allow the request through.  It will more closely resemble regular browser requsets from a user.  The key value pairs can be copied from a request made to the site and viewed using the Network dev tools.  Enable the Raw option in the Dev tools to more easliy copy the headers needed.
 
+    // The same headers can be used to make a reques to any URL. The only value that will need to be updated is the 'Alt-Used' to include the root of the site the request is made to.
+    
     const myHeaders = {
         'Connection': 'keep-alive',
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:142.0) Gecko/20100101 Firefox/142.0',
