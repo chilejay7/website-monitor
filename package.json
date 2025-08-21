@@ -1,0 +1,14 @@
+{
+  "name": "website_monitor",
+  "version": "1.0.0",
+  "description": "This application will monitor a site for changes.",
+  "main": "monitor.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "got": "^13.0.0"
+  }
+}
