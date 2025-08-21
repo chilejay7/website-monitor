@@ -7,3 +7,5 @@ const monitor = async () => {
 
     console.log(response.statusCode);
 }
+
+monitor();
