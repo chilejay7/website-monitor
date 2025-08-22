@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "got": "^13.0.0"
+    "got": "^13.0.0",
+    "node-html-parser": "^7.0.1"
   }
 }
