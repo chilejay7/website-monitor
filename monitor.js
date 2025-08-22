@@ -1,7 +1,7 @@
 import got from 'got';
-const HTMLParser = require('node-html-parser');
+import HTMLParser from 'node-html-parser';
 
-const url = 'https://www.thebriarfellowship.com/product-page/pre-order-raven-claw-orb-tamper-in-two-finishes';
+const url = 'https://www.amazon.com/Nintendo-Switch-Mario-World-Bundle-2/dp/B0FC5FJZ9Z/ref=sr_1_1?crid=2CBF0H2J2665Z&dib=eyJ2IjoiMSJ9.aWB7UsjDSpzvVxh4jhDCyF-v7VJ_-t1ibB-X1OU51iTOPsq0K2rAaQoR1E-n3YpdSUuTMDZhPJqUDgvZFOmXI8JQ1SiTa4vHoguCgs9S-pad2SyWRu3efzRLkP9Xw17gV56nhD4H881MeHLJctRCZP-ko2Sue4tatDxjK0De5BkPnMBKw0NNut0INP7XGrBKm2YZLhbjEHRclozh5geo0XTIUiHoabTTKH_Fz7JOBEc.U3l3JQJ3uDWXeXZVLM9kwgRVhRMkxn3eOG8sUdaD1GM&dib_tag=se&keywords=switch+2&qid=1755832210&sprefix=switch+%2Caps%2C175&sr=8-1';
 
 const monitor = async () => {
     
@@ -15,7 +15,7 @@ const monitor = async () => {
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
         'Accept-Language': 'en-US,en;q=0.5',
         'Accept-Encoding': 'gzip, deflate, br, zstd',
-        'Alt-Used': 'www.thebriarfellowship.com',
+        'Alt-Used': 'www.amazon.com',
         'Connection': 'keep-alive',
         'Upgrade-Insecure-Requests': 1,
         'Sec-Fetch-Dest': 'document',
@@ -31,7 +31,22 @@ const monitor = async () => {
     console.log(response.statusCode);
 
     if(response && response.statusCode == 200) {
-        console.log('Response received');
+        
+        let root = HTMLParser.parse(response.body);
+        console.log(root);
+        let availabilityDiv = root.querySelector('#availability');
+
+        // This object is being returned as null when automated.  Amazon appears to be serving different data in the response to the automated requests as the code works in the browser's window.
+        
+        console.log(availabilityDiv);
+        
+        // The childNodes are accessed through the console in the browser by using document.getElementbyId('availability').childNodes
+        // We look for the innerText property that contains the information related to the stock of the item we're looking for.
+
+        if(availabilityDiv) {
+            let stockText = availabilityDiv.childNodes[1].innerText.toLowerCase();
+            console.log(stockText);
+        }
     }
 };
 
