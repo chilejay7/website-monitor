@@ -9,7 +9,7 @@ const monitor = async () => {
 
     // The same headers can be used to make a request to any URL. The only value that will need to be updated is the 'Alt-Used' to include the root of the site the request is made to.
 
-    const myHeaders = {
+    const urlHeaders = {
         'Connection': 'keep-alive',
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:142.0) Gecko/20100101 Firefox/142.0',
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
@@ -25,7 +25,7 @@ const monitor = async () => {
     }
 
     const response = await got(url, {
-        headers: myHeaders,
+        headers: urlHeaders,
     });
 
     console.log(response.statusCode);
