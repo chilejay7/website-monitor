@@ -1,7 +1,7 @@
 import got from 'got';
 import HTMLParser from 'node-html-parser';
 
-const url = 'https://www.amazon.com/Nintendo-Switch-Mario-World-Bundle-2/dp/B0FC5FJZ9Z/ref=sr_1_1?crid=2CBF0H2J2665Z&dib=eyJ2IjoiMSJ9.aWB7UsjDSpzvVxh4jhDCyF-v7VJ_-t1ibB-X1OU51iTOPsq0K2rAaQoR1E-n3YpdSUuTMDZhPJqUDgvZFOmXI8JQ1SiTa4vHoguCgs9S-pad2SyWRu3efzRLkP9Xw17gV56nhD4H881MeHLJctRCZP-ko2Sue4tatDxjK0De5BkPnMBKw0NNut0INP7XGrBKm2YZLhbjEHRclozh5geo0XTIUiHoabTTKH_Fz7JOBEc.U3l3JQJ3uDWXeXZVLM9kwgRVhRMkxn3eOG8sUdaD1GM&dib_tag=se&keywords=switch+2&qid=1755832210&sprefix=switch+%2Caps%2C175&sr=8-1';
+const url = 'https://www.amazon.com/Peterson-Pipe-Lighter-Grey/dp/B07PV71S52/ref=sr_1_1?crid=B0B4MJGAUEC8&dib=eyJ2IjoiMSJ9.VmzVyTDVcGyZd1J8BVrBI1bUh4GDW0BPjTzphR-kCvVzqwhXht0jbG0dBTuU8jy4dFUAw3jdAZBtfCE1OVGYppyjM75FUcRQPo60-WDvUnMQylqWED5Fc6fyuaPRqGow_b_rhDn7AubSOTSYTMbqiLB3qxYNl5jEaJo1FINWR2Yuz4J9cR9P-bBiFfZqVn6hIVjdPVYdZwaDsQVOLURPMR1PdCWpI04cuRiLTwlud9JDQFesIFXaN2H3XyMTECWnswRSykfdwduKwgQp30y2EXS7QSXvXYLJTgXMHq_K7Oo.zXIcZ-Xc85Bo39lYLq3IcpXqcTDDdU3w-KjtiUk7WiE&dib_tag=se&keywords=peterson+pipe+lighter&qid=1755835463&sprefix=peterson+pipe+lighte%2Caps%2C171&sr=8-1';
 
 const monitor = async () => {
     
@@ -25,7 +25,7 @@ const monitor = async () => {
     }
 
     const response = await got(url, {
-        headers: myHeaders
+        headers: myHeaders,
     });
 
     console.log(response.statusCode);
